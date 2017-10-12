@@ -6,8 +6,8 @@ public class Quantity {
         this.value = quantity;
     }
 
-    public static Quantity valueOf(double quantity) {
-        return new Quantity(quantity);
+    public static Quantity valueOf() {
+        return new Quantity((double) 1);
     }
 
     double multiplyBy(double price){
