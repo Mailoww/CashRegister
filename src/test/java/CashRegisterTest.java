@@ -9,9 +9,9 @@ public class CashRegisterTest {
         CashRegister cashRegister = new CashRegister();
         double quantity = 1;
         // WHEN
-        Price price = Price.of(1.20);
+        Price price = Price.valueOf(1.20);
         Price total = cashRegister.total(price, quantity);
         // THEN
-        Assertions.assertThat(total).isEqualTo(Price.of(1.20));
+        Assertions.assertThat(total).isEqualTo(Price.valueOf(1.20));
     }
 }

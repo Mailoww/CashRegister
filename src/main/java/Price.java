@@ -1,17 +1,13 @@
 public class Price {
 
-    private final double price;
+    private final double value;
 
     private Price(double price) {
-        this.price = price;
+        this.value = price;
     }
 
-    public static Price of(double price) {
+    public static Price valueOf(double price) {
         return new Price(price);
-    }
-
-    public double getValue() {
-        return price;
     }
 
     @Override
@@ -21,19 +17,23 @@ public class Price {
 
         Price price1 = (Price) o;
 
-        return Double.compare(price1.price, price) == 0;
+        return Double.compare(price1.value, value) == 0;
     }
 
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(price);
+        long temp = Double.doubleToLongBits(value);
         return (int) (temp ^ (temp >>> 32));
     }
 
     @Override
     public String toString() {
         return "Price{" +
-                "value=" + price +
+                "value=" + value +
                 '}';
+    }
+
+    public Price multiplyBy(double quantity) {
+        return Price.valueOf(value * quantity);
     }
 }
